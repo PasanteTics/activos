@@ -1,8 +1,19 @@
 import { DropdownButton } from '../../CustomButtonDropdown';
 import { useModalStore } from '../../../stores/useModalStore';
 import { CustomButton } from '../../CustomButton';
-import { IconPlus, IconTrash, IconEye, IconPencil, IconTransfer, IconDeviceDesktopDown, IconPrinter } from '@tabler/icons-react';
+import { AddIcon, AsignationIcon, DeletedIcon, EditIcon, InactiveActivosIcon, PrintIcon, VisualizeIcon } from '@/icons/TablerIcons'
+import { FormCreateActivo } from '../FormCreateActivo';
 
+/**
+ * Componente ButtonActions
+ * 
+ * Este componente renderiza un conjunto de botones personalizados y un botón desplegable para realizar diversas acciones relacionadas con activos.
+ * 
+ * @param {Object} props - Propiedades del componente.
+ * @param {number} props.onActiveButtons - Número de botones activos.
+ * 
+ * @returns {JSX.Element} - Elemento JSX que representa los botones de acción.
+ */
 export const ButtonActions = ({ onActiveButtons }) => {
 
     const { setContent } = useModalStore();
@@ -15,29 +26,52 @@ export const ButtonActions = ({ onActiveButtons }) => {
 
     return (
         <>
+            {/* Dropdown button for adding new assets */}
             <DropdownButton
                 options={[
                     { label: 'Insertar nuevo' },
                     { label: 'Importar desde CSV' },
                     { label: 'Descargar plantilla' }
                 ]}
-                onSelect={(opt) => {
-                    openModal(opt);
-                }}
+                onSelect={openModal}
                 disabledBtn={false}
-                children={IconPlus}
+                children={<AddIcon />}
                 titulo='Agregar activo'
+                style='border-l-0 ml-0 mt-0.5 2xl:-ml-2 2xl:border-b-0'
             />
+            {/* Custom buttons for various actions */}
             <CustomButton
-                children={<IconEye />} disabledBtn={onActiveButtons > 0 && onActiveButtons < 2 ? false : true}
+                children={<VisualizeIcon />} 
+                disabledBtn={onActiveButtons > 0 && onActiveButtons < 2 ? false : true}
                 titulo='Información del activo'
                 moreStyle='py-2'
             />
-            <CustomButton children={IconPencil} titulo='Modificar activo' disabledBtn={onActiveButtons > 0 && onActiveButtons < 2 ? false : true} onClick={openModal} />
-            <CustomButton children={IconTrash} titulo='Borrar activo' disabledBtn={onActiveButtons > 0 ? false : true} />
-            <CustomButton children={IconTransfer} titulo='Asignar activo' disabledBtn={onActiveButtons > 0 ? false : true} />
-            <CustomButton children={IconDeviceDesktopDown} titulo='Dar de baja un activo' disabledBtn={onActiveButtons > 0 ? false : true} />
-            <CustomButton children={IconPrinter} titulo='Imprimir QR`S' disabledBtn={onActiveButtons > 0 ? false : true} />
+            <CustomButton 
+                children={<EditIcon />} 
+                titulo='Modificar activo' 
+                disabledBtn={onActiveButtons > 0 && onActiveButtons < 2 ? false : true} 
+                onClick={openModal} 
+            />
+            <CustomButton 
+                children={<DeletedIcon />} 
+                titulo='Borrar activo' 
+                disabledBtn={onActiveButtons > 0 ? false : true} 
+            />
+            <CustomButton 
+                children={<AsignationIcon />} 
+                titulo='Asignar activo' 
+                disabledBtn={onActiveButtons > 0 ? false : true} 
+            />
+            <CustomButton 
+                children={<InactiveActivosIcon />} 
+                titulo='Dar de baja un activo' 
+                disabledBtn={onActiveButtons > 0 ? false : true} 
+            />
+            <CustomButton 
+                children={<PrintIcon />} 
+                titulo='Imprimir QR`S' 
+                disabledBtn={onActiveButtons > 0 ? false : true} 
+            />
         </>
     )
 }

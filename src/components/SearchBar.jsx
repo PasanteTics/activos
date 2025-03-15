@@ -1,5 +1,6 @@
 import { FilterIcon, SearchIcon } from '../icons/TablerIcons'
 import { CustomButton } from './CustomButton'
+import { DropdownButton } from './CustomButtonDropdown'
 
 export const SearchBar = () => {
     return (
@@ -16,10 +17,19 @@ export const SearchBar = () => {
                         placeholder=' Buscar...'
                         className='h-8 pl-8 w-full md:w-[290px] lg:w-[290px] xl:w-[290px] 2xl:w-auto border font-extralight px-2 ml-2'
                     />
-                    <CustomButton
+
+                    <DropdownButton
                         children={<FilterIcon />}
                         titulo='Filtrar activos'
-                        moreStyle='text-black'
+                        options={[
+                            { label: 'Filtrar por estado' },
+                            { label: 'Filtrar por categoría' },
+                            { label: 'Filtrar por ubicación' },
+                            { label: 'Filtrar por responsable' },
+                        ]}
+                        onSelect={(opt) => console.log(opt)}
+                        disabledBtn={false}
+                        style='absolute z-10 mt-0.5 bg-white shadow-2xl border 2xl:border-r-0 2xl:mt-3 right-0 md:mt-2.5 md:border-r md:border-t-0 md:-translate-x-36.5 transform 2xl:-translate-x-37 border-r-0 -translate-x-34.5'
                     />
                 </div>
             </div>

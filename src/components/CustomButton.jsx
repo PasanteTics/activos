@@ -3,7 +3,7 @@ import React from 'react'
 export const CustomButton = ({
   title = '',
   action = () => false,
-  children ,
+  children=<></>,
   disabledBtn = false,
   titulo = '',
   moreStyle = '',
