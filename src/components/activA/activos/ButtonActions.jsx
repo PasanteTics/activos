@@ -3,6 +3,7 @@ import { useModalStore } from '../../../stores/useModalStore';
 import { CustomButton } from '../../CustomButton';
 import { AddIcon, AsignationIcon, DeletedIcon, EditIcon, InactiveActivosIcon, PrintIcon, VisualizeIcon } from '@/icons/TablerIcons'
 import { FormCreateActivo } from '../FormCreateActivo';
+import { DeleteActionForm } from '../../DeleteActionForm';
 
 /**
  * Componente ButtonActions
@@ -14,6 +15,7 @@ import { FormCreateActivo } from '../FormCreateActivo';
  * 
  * @returns {JSX.Element} - Elemento JSX que representa los botones de acción.
  */
+
 export const ButtonActions = ({ onActiveButtons }) => {
 
     const { setContent } = useModalStore();
@@ -26,7 +28,6 @@ export const ButtonActions = ({ onActiveButtons }) => {
 
     return (
         <>
-            {/* Dropdown button for adding new assets */}
             <DropdownButton
                 options={[
                     { label: 'Insertar nuevo' },
@@ -37,40 +38,40 @@ export const ButtonActions = ({ onActiveButtons }) => {
                 disabledBtn={false}
                 children={<AddIcon />}
                 titulo='Agregar activo'
-                style='border-l-0 ml-0 mt-0.5 2xl:-ml-2 2xl:border-b-0'
+                style='ml-0 mt-0.5 2xl:-ml-2'
             />
-            {/* Custom buttons for various actions */}
             <CustomButton
-                children={<VisualizeIcon />} 
+                children={<VisualizeIcon />}
                 disabledBtn={onActiveButtons > 0 && onActiveButtons < 2 ? false : true}
                 titulo='Información del activo'
                 moreStyle='py-2'
             />
-            <CustomButton 
-                children={<EditIcon />} 
-                titulo='Modificar activo' 
-                disabledBtn={onActiveButtons > 0 && onActiveButtons < 2 ? false : true} 
-                onClick={openModal} 
+            <CustomButton
+                children={<EditIcon />}
+                titulo='Modificar activo'
+                disabledBtn={onActiveButtons > 0 && onActiveButtons < 2 ? false : true}
+                onClick={openModal}
             />
-            <CustomButton 
-                children={<DeletedIcon />} 
-                titulo='Borrar activo' 
-                disabledBtn={onActiveButtons > 0 ? false : true} 
+            <CustomButton
+                children={<DeletedIcon />}
+                titulo='Borrar activo'
+                disabledBtn={onActiveButtons > 0 ? false : true}
+                action={() => setContent(<DeleteActionForm bodyText={'¿Está seguro que desea eliminar el registro?'} />)}
             />
-            <CustomButton 
-                children={<AsignationIcon />} 
-                titulo='Asignar activo' 
-                disabledBtn={onActiveButtons > 0 ? false : true} 
+            <CustomButton
+                children={<AsignationIcon />}
+                titulo='Asignar activo'
+                disabledBtn={onActiveButtons > 0 ? false : true}
             />
-            <CustomButton 
-                children={<InactiveActivosIcon />} 
-                titulo='Dar de baja un activo' 
-                disabledBtn={onActiveButtons > 0 ? false : true} 
+            <CustomButton
+                children={<InactiveActivosIcon />}
+                titulo='Dar de baja un activo'
+                disabledBtn={onActiveButtons > 0 ? false : true}
             />
-            <CustomButton 
-                children={<PrintIcon />} 
-                titulo='Imprimir QR`S' 
-                disabledBtn={onActiveButtons > 0 ? false : true} 
+            <CustomButton
+                children={<PrintIcon />}
+                titulo='Imprimir QR`S'
+                disabledBtn={onActiveButtons > 0 ? false : true}
             />
         </>
     )

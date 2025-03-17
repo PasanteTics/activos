@@ -22,6 +22,7 @@ export const DropdownButton = ({
     disabledBtn = false,
     children,
     style = '',
+    moreStylesBtn = ''
 }) => {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -58,13 +59,14 @@ export const DropdownButton = ({
                 title={title}
                 action={() => setIsOpen(!isOpen)}
                 disabledBtn={disabledBtn}
+                moreStyle={moreStylesBtn}
             />
             {isOpen && (
-                <div className={`absolute z-10 2xl:mt-0.5 bg-white shadow-2xl border ${openLeft ? 'right-0 transform -translate-x-full' : `left-0 2xl:mt-2.5 -ml-2 ${style}`}`} style={{ minWidth: '12rem' }}>
+                <div className={`absolute z-10 2xl:mt-0.5 bg-white shadow-2xl border ${openLeft ? 'right-0 transform -translate-x-full' : `left-0 2xl:mt-2.5 -ml-2 ${style}`}`} style={{ minWidth: '11.5rem' }}>
                     {options.map((option, index) => (
                         <div
                             key={index}
-                            className="px-4 py-2 text-sm text-black font-medium hover:bg-gray-100 hover:underline cursor-pointer"
+                            className="px-4 py-2 text-sm text-start text-black font-medium hover:bg-gray-100 hover:underline cursor-pointer"
                             onClick={() => {
                                 onSelect(option);
                                 setIsOpen(false);

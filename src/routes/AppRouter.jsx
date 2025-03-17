@@ -5,7 +5,7 @@ import { ActivosPage } from '../pages/ActivosPage'
 export const AppRouter = () => {
   return (
     <Switch>
-        <Route path={'/activos'} component={ActivosPage} />
+        <Route path={'/Activos/Activa'} component={ActivosPage} />
         <Redirect to='/activos' />
     </Switch>    
   )

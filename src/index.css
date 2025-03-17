@@ -4,3 +4,29 @@
     scrollbar-width: none;
 }
 
+.dropdown-content {
+    display: block;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  
+  .notification-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .notification-item p {
+    margin: 0;
+  }
+  
+  .notification-item span {
+    display: block;
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .notification-item:last-child {
+    border-bottom: none;
+  }
