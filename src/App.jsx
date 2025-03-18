@@ -1,3 +1,4 @@
+import { CustomLoader } from './components/CustomLoader'
 import { CustomModal } from './components/CustomModal'
 import { HeaderCustom } from './components/HeaderCustom'
 import { AppRouter } from './routes/AppRouter'
@@ -5,7 +6,7 @@ import { AppRouter } from './routes/AppRouter'
 export const App = () => (
     <>
         <CustomModal />
-        <HeaderCustom />
+        <CustomLoader/>
         <AppRouter />
     </>
 )

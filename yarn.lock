@@ -1564,6 +1564,11 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
+dayjs@^1.11.13:
+  version "1.11.13"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.13.tgz#92430b0139055c3ebb60150aa13e860a4b5a366c"
+  integrity sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==
+
 debug@4, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2:
   version "4.4.0"
   resolved "https://registry.npmjs.org/debug/-/debug-4.4.0.tgz"
@@ -3252,6 +3257,11 @@ react-dom@^19.0.0:
   integrity sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==
   dependencies:
     scheduler "^0.25.0"
+
+react-hook-form@^7.54.2:
+  version "7.54.2"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.54.2.tgz#8c26ed54c71628dff57ccd3c074b1dd377cfb211"
+  integrity sha512-eHpAUgUjWbZocoQYUHposymRb4ZP6d0uwUnooL2uOybA9/3tPUvoAKqEWK1WaSiTxxOfTpffNZP7QwlnM3/gEg==
 
 react-is@^17.0.1:
   version "17.0.2"

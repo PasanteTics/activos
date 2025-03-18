@@ -18,7 +18,7 @@ import { CustomButton } from './CustomButton';
 export const DropdownButton = ({
     title = '',
     options = [],
-    onSelect = () => { },
+    onSelect = () => false,
     disabledBtn = false,
     children,
     style = '',
@@ -30,19 +30,16 @@ export const DropdownButton = ({
     const dropdownRef = useRef(null);
     const buttonRef = useRef(null);
 
-    // Cerrar el dropdown cuando se hace clic fuera de él
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setIsOpen(false);
-            }
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) return setIsOpen(false);
         };
 
         document.addEventListener('mousedown', handleClickOutside);
+
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
-    // Calcular la posición del botón y ajustar la dirección del dropdown
     useEffect(() => {
         if (isOpen && buttonRef.current) {
             const rect = buttonRef.current.getBoundingClientRect();

@@ -13,5 +13,12 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss()
-  ]
+  ],
+  server: {
+		proxy: {
+			'/api': {
+				target: 'http://192.168.1.120:8080'
+			}
+		}
+	},
 })

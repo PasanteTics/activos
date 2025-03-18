@@ -1,12 +1,29 @@
 import React from 'react'
-import { Redirect, Route, Switch } from 'wouter'
+import { Route, Switch } from 'wouter'
 import { ActivosPage } from '../pages/ActivosPage'
+import { LoginPage } from '../pages/LoginPage'
+import { HeaderCustom } from '../components/HeaderCustom'
+import { PrivateRoute } from './PrivateRoute'
+import { PublicRoute } from './PublicRoute'
 
 export const AppRouter = () => {
+
   return (
-    <Switch>
-        <Route path={'/Activos/Activa'} component={ActivosPage} />
-        <Redirect to='/activos' />
-    </Switch>    
+    <>
+      <Switch>
+        <Route path={'/login'}>
+          <PublicRoute>
+            <LoginPage />
+          </PublicRoute>
+        </Route>
+
+        <Route path='/'>
+          <PrivateRoute>
+            <HeaderCustom />
+            <ActivosPage />
+          </PrivateRoute>
+        </Route>
+      </Switch>
+    </>
   )
 }
